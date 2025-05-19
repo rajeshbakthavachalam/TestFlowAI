@@ -1,0 +1,101 @@
+{
+	"info": {
+		"_postman_id": "b5361c52-7ed7-4958-b019-5c0604f1a0b9",
+		"name": "SDLC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "435260"
+	},
+	"item": [
+		{
+			"name": "Start Workflow",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"let task_id = jsonData.task_id;",
+							"console.log(task_id)",
+							"pm.environment.set(\"task_id\", task_id);",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"project_name\": \"Ecommerce Platform\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/sdlc/start",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"sdlc",
+						"start"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Generate User Stories",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"project_name\": \"Ecommerce Platform\",\n  \"requirements\": [\n    \"Users can browser the products\",\n    \"Users should be able to add the product in the cart\",\n    \"Users should be able to do the payment\",\n    \"Users should be able to see their order history\"\n  ],\n  \"task_id\": \"{{task_id}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/sdlc/user_stories",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"sdlc",
+						"user_stories"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,29 @@
+
+STLC Workflow Diagram
+====================
+
+START
+  │
+  ▼
+[Requirement Analysis]
+  │
+  ▼
+[Test Planning]
+  │
+  ▼
+[Test Case Development]
+  │
+  ▼
+[Test Environment Setup]
+  │
+  ▼
+[Test Execution]
+  │
+  ▼
+[Test Closure]
+  │
+  ▼
+[Download Artifacts]
+  │
+  ▼
+ END
